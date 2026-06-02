@@ -1,0 +1,77 @@
+/* === Next Level Lawyer · HTML v2 === */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap');
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #000;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.font-display {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.nav-glass { background: rgba(0,0,0,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.gold-glow { text-shadow: 0 0 40px rgba(218,165,32,0.4); }
+.gold-border-glow { box-shadow: 0 0 30px rgba(218,165,32,0.15); }
+
+.card-lift { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+.card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(218,165,32,0.1); border-color: rgba(218,165,32,0.3); }
+
+/* Reveal animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Text stagger char animation */
+.text-stagger span { display: inline-block; opacity: 0; transform: translateY(30px); filter: blur(4px); transition: opacity .5s ease, transform .5s ease, filter .5s ease; }
+.text-stagger.visible span { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+/* Hero spinning gold ring */
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.gold-ring { animation: spin 60s linear infinite; }
+
+/* Marquee */
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 35s linear infinite; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .text-stagger span { opacity: 1; transform: none; filter: none; transition: none; }
+  .gold-ring, .animate-marquee { animation: none; }
+  .card-lift { transition: none; }
+  .card-lift:hover { transform: none; }
+}
+
+/* ═══ Claude brand wordmark ═══
+   Anthropic clay #CC785C · 4-petal sparkle · Source Serif 4 */
+.claude {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-weight: 600;
+  color: #CC785C;
+  letter-spacing: -0.015em;
+  font-style: normal;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  white-space: nowrap;
+}
+.claude-spark {
+  width: 0.85em;
+  height: 0.85em;
+  display: inline-block;
+  flex-shrink: 0;
+  fill: #CC785C;
+}
+
+/* Focus states */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid #DAA520;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
